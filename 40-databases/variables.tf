@@ -14,5 +14,9 @@ variable "domain_name" {
     default = "mydaws90.online"
 }
 
+variable "mysql_root_password" {
+    type = string
+}
+
 
 
