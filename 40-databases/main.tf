@@ -120,6 +120,7 @@ resource "terraform_data" "rabbitmq" {
 resource "aws_instance" "mysql" {
   ami           = local.ami_id
   instance_type = "t3.micro"
+  iam_instance_profile = aws_iam_instance_profile.mysql.name
   vpc_security_group_ids = [local.mysql_sg_id]
   subnet_id = local.database_subnet_id
   
