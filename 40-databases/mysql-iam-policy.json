@@ -5,7 +5,7 @@
 			"Sid": "VisualEditor0",
 			"Effect": "Allow",
 			"Action": "ssm:GetParameters",
-			"Resource": "arn:aws:secretsmanager:us-east-1:452031276609:secret:roboshop/dev/mysql_root_password-s7nBt0"
+			"Resource": "arn:aws:ssm:us-east-1:452031276609:parameter/roboshop/dev/mysql_root_password"
 		},
 		{
 			"Sid": "VisualEditor1",
