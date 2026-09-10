@@ -3,7 +3,7 @@ resource "aws_lb" "backend_alb" {
   internal           = true
   load_balancer_type = "application"
   security_groups    = [local.backend_alb_sg_id]
-  subnets            = [local.private_subnet_ids]
+  subnets            = local.private_subnet_ids
 
   enable_deletion_protection = true
 
@@ -38,7 +38,7 @@ resource "aws_lb_listener" "http" {
 
 resource "aws_route53_record" "alb"{
   zone_id = var.zone_id
-  name    = "*.backend-alb-${var.environment}-${var.domain_name}"   # *.backend-alb-dev-mydaws90.online
+  name    = "*.backend-alb-${var.environment}-mydaws90.online" # 
   type    = "A"
 
   alias {
