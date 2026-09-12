@@ -10,10 +10,13 @@ variable "environment" {
 #     default = "Z01869663BV0Y667K7V9L"
 # }
 
-# variable "domain_name" {
-#     default = "mydaws90.online"
-# }
+variable "domain_name" {
+    default = "mydaws90.online"
+}
 
+variable "app_version" {
+    default = "v3"
+}
 
 
 
