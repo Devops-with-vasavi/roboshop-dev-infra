@@ -1,8 +1,7 @@
 resource "aws_iam_role" "mysql" {
-  name = "${local.common_name}-mysql"
+  name = "${local.common_name}-mysql" # roboshop-dev-mysql
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
+  # This is the trust policy, means we can attach this role to EC2 instance
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -18,14 +17,12 @@ resource "aws_iam_role" "mysql" {
   })
 
   tags = merge(
-    local.common_tags,
     {
         Name = "${local.common_name}-mysql"
-    }
+    },
+    local.common_tags
   )
-  
 }
-
 
 resource "aws_iam_policy" "mysql" {
   name        = "${local.common_name}-mysql"
@@ -36,9 +33,8 @@ resource "aws_iam_policy" "mysql" {
   policy = file("mysql-iam-policy.json")
 }
 
-
-resource "aws_iam_role_policy_attachment" "example-attach" {
-  role     = aws_iam_role.mysql.name
+resource "aws_iam_role_policy_attachment" "mysql" {
+  role       = aws_iam_role.mysql.name
   policy_arn = aws_iam_policy.mysql.arn
 }
 
