@@ -15,3 +15,4 @@ git clone https://github.com/Devops-with-vasavi/Roboshop-Ansible-v3-project.git
 cd Roboshop-Ansible-v3-project
 git pull
 ansible-playbook -e component=$component -e env=$environment -e app_version=$app_version roboshop.yaml
+
