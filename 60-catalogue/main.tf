@@ -139,7 +139,7 @@ resource "aws_autoscaling_group" "catalogue" {
       {
      Name = "${local.common_name}-catalogue"
       },
-      local.common_name
+      local.common_tags
   )
     content {
         key                 = "tag.key"
