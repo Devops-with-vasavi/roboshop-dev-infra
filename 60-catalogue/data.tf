@@ -16,6 +16,7 @@ data "aws_ssm_parameter" "backend_alb_listener_arn" {
 }
 
 
+
 data "aws_ami" "joindevops" {
   most_recent      = true
   owners           = ["973714476881"]
