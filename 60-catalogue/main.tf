@@ -153,6 +153,19 @@ resource "aws_autoscaling_group" "catalogue" {
 }
 
 
+resource "aws_autoscaling_policy" "catalogue" {
+  name                   = "${local.common_name}-catalogue"
+  autoscaling_group_name = aws_autoscaling_group.catalogue.name
+  policy_type = "TargetTrackingScaling"
+  target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+    target_value = 75.0
+  }
+}
+
+
 
 
 
