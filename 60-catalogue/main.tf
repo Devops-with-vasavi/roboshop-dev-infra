@@ -119,6 +119,40 @@ resource "aws_lb_target_group" "catalogue" {
 
 
 
+resource "aws_autoscaling_group" "catalogue" {
+  name                      = "${local.common_name}-catalogue"
+  max_size                  = 10
+  min_size                  = 1
+  health_check_grace_period = 120
+  health_check_type         = "ELB"
+  desired_capacity          = 2
+  force_delete              = false
+  launch_template {
+    id      = aws_launch_template.catalogue.id
+    version = "$Latest"
+  }
+  target_group_arns = [aws_lb_target_group.catalogue.arn]  # autoscaling launches into specific target group
+  vpc_zone_identifier       = [local.private_subnet_id]
+
+  dynamic "tag"{
+    for_each =  merge (
+      {
+     Name = "${local.common_name}-catalogue"
+      },
+      local.common_name
+  )
+    content {
+        key                 = "tag.key"
+        value               = "tag.value"
+        propagate_at_launch = true
+      }
+   }
+  timeouts {
+    delete = "15m"
+  }
+}
+
+
 
 
 
