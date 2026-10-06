@@ -6,7 +6,7 @@ variable "environment" {
 
 
 variable "domain_name" {
-    type = "mydaws90.online"
+    default = "mydaws90.online"
 }
 
 variable "zone_id" {
