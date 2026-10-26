@@ -7,7 +7,7 @@ terraform {
   }
   #remote state storage location
   backend "s3" {
-    bucket         = "terraform-demo01-bucket-dev"
+    bucket         = "terraform-demo1-bucket-dev"
     key            = "roboshop-vpc.tfstate"
     region         = "us-east-1"
     encrypt        = true
