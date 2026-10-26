@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket         = "terraform-demo1-bucket-dev"
     key            = "roboshop-vpc.tfstate"
-    region         = "us-east-1"
+    region         = "ap-southeast-2"
     encrypt        = true
     # Optional: enable native S3 locking (Terraform 1.10+)
     use_lockfile   = true
