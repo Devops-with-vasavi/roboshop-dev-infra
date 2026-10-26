@@ -7,7 +7,7 @@
         "ssm:GetParameter",
         "ssm:GetParameters"
       ],
-      "Resource": "arn:aws:ssm:us-east-1:452031276609:parameter/roboshop/dev/mysql_root_password"
+      "Resource": "arn:aws:ssm:us-east-1:073500473360:parameter/roboshop/dev/mysql_root_password"
     }
   ]
 }
